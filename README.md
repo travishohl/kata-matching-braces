@@ -1,9 +1,9 @@
 kata-valid-braces
 ================
 
-Write a function that, given a string of round '()', square '[]', and curly braces '{}', determines if the braces are matching. The function should print "1" to standard out if the braces are matching, or "0" in the alternative.
+Write a function that, given a string of round `()`, square `[]`, and curly braces `{}`, determines whether the braces are matching. The function should return `true` if the braces are matching, or `false` in the alternative.
 
-A string of braces is considered matching if all open braces are matched with a subsequent closing brace. For example, `(){}[]` and `([{}])` are matching , while `(}`, `[(])`, and `[({})](]` would be considered not matching.
+A string of braces is considered matching if all open braces are matched with a subsequent closing brace of the same type. For example, `(){}[]` and `([{}])` are matching , while `(}`, `[(])`, and `[({})](]` would be considered not matching.
 
 Examples:
 ---------
