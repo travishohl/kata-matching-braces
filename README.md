@@ -1,4 +1,4 @@
-kata-valid-braces
+kata-matching-braces
 ================
 
 Write a function that, given a string of round `()`, square `[]`, and curly braces `{}`, determines whether the braces are matching. The function should return `true` if the braces are matching, or `false` in the alternative.
