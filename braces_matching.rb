@@ -10,7 +10,11 @@ class String
 
 		# Compare count of open and close braces, if
 		# equal, then that type of brace is matching
-		if (braces_histogram["("] == braces_histogram[")"])
+		if (braces_histogram["("] != 0 and braces_histogram["("] == braces_histogram[")"])
+			return true
+		elsif (braces_histogram["["] != 0 and braces_histogram["["] == braces_histogram["]"])
+			return true
+		elsif (braces_histogram["{"] != 0 and braces_histogram["{"] == braces_histogram["}"])
 			return true
 		else
 			return false
