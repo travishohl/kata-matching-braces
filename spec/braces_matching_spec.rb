@@ -37,4 +37,9 @@ describe String, "#braces_matching?" do
 		result = "[(])".braces_matching?
 		expect(result).to eq(false)
 	end
+
+	it "returns false given '[({})](]'" do
+		result = "[({})](]".braces_matching?
+		expect(result).to eq(false)
+	end
 end
