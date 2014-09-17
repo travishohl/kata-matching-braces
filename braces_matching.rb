@@ -9,32 +9,23 @@ class String
 		# Create an array of Braces
 		braces_array = self.split('').map { |char| Brace.new(char) }
 
-		return has_match?(braces_array, 0) ? true : false
+		# Initialize empty stack
+		stack = []
 
-	end
-
-		#
-		# For first brace in the array, send message "has_match?"
-		#
-		# Method: "has_match?", takes array and a position in the array
-	def has_match?(array, position)
-
-		# Remember current_brace
-		current_brace = array[position]
-
-		# Remember next_brace (brace at position + 1), unless array ends, then return false
-		unless next_brace = array[position + 1]
-			return false
-		end
-
-		if next_brace.is_open? # If the brace is an open brace
-			return has_match?(array, position + 1) # recurse using "has_match?"
-		elsif next_brace.is_closed? # else if it is a closed brace
-			if current_brace.shape == next_brace.shape # and it is the same shape as me
-				return true # found a match! return true!
-			else # else if it is not the same type as me
-				return false # no match, return false
+		# Iterate over array of Braces, adding open braces to the stack and removing
+		# closed braces when a match exists in the stack
+		braces_array.each do |brace|
+			if brace.is_open?
+				stack << brace
+			else
+				if brace.shape == stack.last.shape
+					stack.pop
+				else
+					return false # mismatch
+				end
 			end
 		end
+
+		return true # all braces match!
 	end
 end
