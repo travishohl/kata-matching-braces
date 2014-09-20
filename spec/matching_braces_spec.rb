@@ -1,22 +1,22 @@
-require_relative "../braces_matching"
+require_relative "../matching_braces"
 
-describe String, "#braces_matching?" do
+describe String, "#matching_braces?" do
 
 	#
 	# Simple matching braces of each type
 	#
 	it "returns true given '()'" do
-		result = "()".braces_matching?
+		result = "()".matching_braces?
 		expect(result).to eq(true)
 	end
 
 	it "returns true given '[]'" do
-		result = "[]".braces_matching?
+		result = "[]".matching_braces?
 		expect(result).to eq(true)
 	end
 
 	it "returns true given '{}'" do
-		result = "{}".braces_matching?
+		result = "{}".matching_braces?
 		expect(result).to eq(true)
 	end
 
@@ -24,22 +24,22 @@ describe String, "#braces_matching?" do
 	# Corner cases
 	#
 	it "returns false given '(]'" do
-		result = "(]".braces_matching?
+		result = "(]".matching_braces?
 		expect(result).to eq(false)
 	end
 
 	it "returns true given '([{}])'" do
-		result = "([{}])".braces_matching?
+		result = "([{}])".matching_braces?
 		expect(result).to eq(true)
 	end
 
 	it "returns false given '[(])'" do
-		result = "[(])".braces_matching?
+		result = "[(])".matching_braces?
 		expect(result).to eq(false)
 	end
 
 	it "returns false given '[({})](]'" do
-		result = "[({})](]".braces_matching?
+		result = "[({})](]".matching_braces?
 		expect(result).to eq(false)
 	end
 end

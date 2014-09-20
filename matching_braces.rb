@@ -4,7 +4,7 @@ require "./brace"
 class String
 
 	# Given a String, returns true if all braces in the String have an opposite partner
-	def braces_matching?
+	def matching_braces?
 
 		# Create an array of Braces
 		braces_array = self.split('').map { |char| Brace.new(char) }
