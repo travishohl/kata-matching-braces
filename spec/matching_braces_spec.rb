@@ -2,44 +2,30 @@ require_relative "../matching_braces"
 
 describe String, "#matching_braces?" do
 
-	#
-	# Simple matching braces of each type
-	#
-	it "returns true given '()'" do
-		result = "()".matching_braces?
-		expect(result).to eq(true)
+	matching_input = [
+		"()",
+		"[]",
+		"{}",
+		"([{}])"
+	]
+
+	not_matching_input = [
+		"(]",
+		"[(])",
+		"[({})](]"
+	]
+
+	matching_input.each do |input|
+		it "returns true given #{input}" do
+			result = "#{input}".matching_braces?
+			expect(result).to eq(true)
+		end
 	end
 
-	it "returns true given '[]'" do
-		result = "[]".matching_braces?
-		expect(result).to eq(true)
-	end
-
-	it "returns true given '{}'" do
-		result = "{}".matching_braces?
-		expect(result).to eq(true)
-	end
-
-	#
-	# Corner cases
-	#
-	it "returns false given '(]'" do
-		result = "(]".matching_braces?
-		expect(result).to eq(false)
-	end
-
-	it "returns true given '([{}])'" do
-		result = "([{}])".matching_braces?
-		expect(result).to eq(true)
-	end
-
-	it "returns false given '[(])'" do
-		result = "[(])".matching_braces?
-		expect(result).to eq(false)
-	end
-
-	it "returns false given '[({})](]'" do
-		result = "[({})](]".matching_braces?
-		expect(result).to eq(false)
+	not_matching_input.each do |input|
+		it "returns false given #{input}" do
+			result = "#{input}".matching_braces?
+			expect(result).to eq(false)
+		end
 	end
 end
